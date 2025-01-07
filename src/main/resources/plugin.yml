@@ -1,0 +1,27 @@
+name: craftableinvframes
+version: ${version}
+api-version: 1.21
+main: org.codeberg.wastelandorigin.plugins.craftableinvframes.CraftableInvFrames
+authors: [Techdoodle, SpiritOTHawk]
+commands:
+  iframe:
+    permission: craftableinvframes.cmd
+    description: Gives the player an invisible item frame
+    usage: /iframe
+permissions:
+  craftableinvframes.place:
+    default: true
+  craftableinvframes.craft:
+    default: true
+  craftableinvframes.cmd:
+    default: op
+  craftableinvframes.reload:
+    default: op
+  craftableinvframes.forcerecheck:
+    default: op
+  craftableinvframes.get:
+    default: op
+  craftableinvframes.give:
+    default: op
+  craftableinvframes.setitem:
+    default: op
