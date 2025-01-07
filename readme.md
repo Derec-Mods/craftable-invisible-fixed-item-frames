@@ -1,16 +1,15 @@
 # CraftableInvFrames
 ### A fork of [Survival Invisiframes](https://github.com/techchrism/survival-invisiframes)
+### Also a fork of [Craftable Invisiframes](https://modrinth.com/plugin/craftableinvframes)
 
-This plugin enables the use of 1.21's invisible item frames for survival players
+This plugin enables the crafting of invisible, and fixed item frames for Players
 
-Invisible item frames are crafted similar to tipped arrows - one lingering invisibility potion surrounded by 8 item frames\
+Invisible item frames are crafted similar to tipped arrows - one invisibility potion surrounded by 8 item frames\
 ![Recipe Screenshot](https://i.imgur.com/RtX84ic.png)
 
-In 1.17+, an invisible item frame can be crafted with a glow ink sac to create a glowing invisible item frame
+Fixed item frames use one iron in the middle
 
-## Open wiki
-You can edit our plugin wiki!
-[Do it!](https://codeberg.org/WasteLandOrigin/CraftableInvFrames/wiki)
+In 1.17+, an invisible item frame can be crafted with a glow ink sac to create a glowing invisible item frame
 
 ## Permissions
 Permission | Description
@@ -40,17 +39,6 @@ Command | Description | Permission
 # Whether or not to enable invisible item frames glowing when there's no item in them
 # This will also make them visible when there's no item in them
 item-frames-glow: true
-
-# The item in the center of the recipe
-# Recommended to use "/iframe setitem" to change this
-recipe:
-  ==: org.bukkit.inventory.ItemStack
-  v: 2567
-  type: LINGERING_POTION
-  meta:
-    ==: ItemMeta
-    meta-type: POTION
-    potion-type: minecraft:invisibility
 
 itemname-invframe: "Invisible Item Frame"
 itemname-glow-invframe: "Glow Invisible Item Frame"

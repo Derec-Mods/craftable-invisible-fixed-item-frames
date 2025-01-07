@@ -1,4 +1,4 @@
-package org.codeberg.wastelandorigin.plugins.craftableinvframes;
+package io.github.derec4.craftableframes;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Item;

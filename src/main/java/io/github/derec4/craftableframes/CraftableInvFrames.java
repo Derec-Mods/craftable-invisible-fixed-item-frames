@@ -1,4 +1,4 @@
-package org.codeberg.wastelandorigin.plugins.craftableinvframes;
+package io.github.derec4.craftableframes;
 
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -30,6 +30,7 @@ import java.util.Set;
 
 public class CraftableInvFrames extends JavaPlugin implements Listener {
     private static NamespacedKey invisibleKey;
+    private static NamespacedKey fixedKey;
     private NamespacedKey invisibleRecipe;
     private Set<DroppedFrameLocation> droppedFrames;
 
@@ -40,6 +41,15 @@ public class CraftableInvFrames extends JavaPlugin implements Listener {
     private Material glowInkSac = null;
     private Material glowFrame = null;
     private EntityType glowFrameEntity = null;
+
+    public static ItemStack generateFixedItemFrame() {
+        ItemStack item = new ItemStack(Material.ITEM_FRAME, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ChatColor.WHITE + "Fixed Item Frame");
+        meta.getPersistentDataContainer().set(fixedKey, PersistentDataType.BYTE, (byte) 1);
+        item.setItemMeta(meta);
+        return item;
+    }
 
     public static ItemStack generateInvisibleItemFrame(FileConfiguration config) {
         ItemStack item = new ItemStack(Material.ITEM_FRAME, 1);
@@ -54,6 +64,7 @@ public class CraftableInvFrames extends JavaPlugin implements Listener {
     public void onEnable() {
         invisibleRecipe = new NamespacedKey(this, "invisible-recipe");
         invisibleKey = new NamespacedKey(this, "invisible");
+        fixedKey = new NamespacedKey(this, "fixed");
 
         droppedFrames = new HashSet<>();
 
@@ -124,6 +135,15 @@ public class CraftableInvFrames extends JavaPlugin implements Listener {
         invisRecipe.setIngredient('F', Material.ITEM_FRAME);
         invisRecipe.setIngredient('P', new RecipeChoice.ExactChoice(invisibilityPotion));
         Bukkit.addRecipe(invisRecipe);
+
+        ItemStack fixedItem = generateFixedItemFrame();
+        fixedItem.setAmount(1);
+
+        ShapedRecipe fixedRecipe = new ShapedRecipe(new NamespacedKey(this, "fixed-recipe"), fixedItem);
+        fixedRecipe.shape("FFF", "FIF", "FFF");
+        fixedRecipe.setIngredient('F', Material.ITEM_FRAME);
+        fixedRecipe.setIngredient('I', Material.IRON_INGOT);
+        Bukkit.addRecipe(fixedRecipe);
     }
 
     public void forceRecheck() {

@@ -1,8 +1,8 @@
 name: craftableinvframes
 version: ${version}
 api-version: 1.21
-main: org.codeberg.wastelandorigin.plugins.craftableinvframes.CraftableInvFrames
-authors: [Techdoodle, SpiritOTHawk]
+main: io.github.derec4.craftableframes.CraftableInvFrames
+authors: [derex, Techdoodle, SpiritOTHawk]
 commands:
   iframe:
     permission: craftableinvframes.cmd
