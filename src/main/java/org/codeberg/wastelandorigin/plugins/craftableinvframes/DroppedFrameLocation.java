@@ -5,28 +5,23 @@ import org.bukkit.entity.Item;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.BoundingBox;
 
-public class DroppedFrameLocation
-{
+public class DroppedFrameLocation {
     private final BoundingBox box;
     private BukkitTask removal;
-    
-    public DroppedFrameLocation(Location location)
-    {
+
+    public DroppedFrameLocation(Location location) {
         this.box = BoundingBox.of(location, 1.0, 1.0, 1.0);
     }
-    
-    public boolean isFrame(Item item)
-    {
+
+    public boolean isFrame(Item item) {
         return box.contains(item.getBoundingBox());
     }
-    
-    public BukkitTask getRemoval()
-    {
+
+    public BukkitTask getRemoval() {
         return removal;
     }
-    
-    public void setRemoval(BukkitTask removal)
-    {
+
+    public void setRemoval(BukkitTask removal) {
         this.removal = removal;
     }
 }
