@@ -22,6 +22,7 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.potion.PotionType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashSet;
@@ -125,9 +126,9 @@ public class CraftableInvFrames extends JavaPlugin implements Listener {
         ItemStack invisibleItem = generateInvisibleItemFrame(getConfig());
         invisibleItem.setAmount(8);
 
-        ItemStack invisibilityPotion = new ItemStack(Material.LINGERING_POTION);
+        ItemStack invisibilityPotion = new ItemStack(Material.POTION);
         PotionMeta potionMeta = (PotionMeta) invisibilityPotion.getItemMeta();
-        potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 3600, 0), true);
+        potionMeta.setBasePotionType(PotionType.INVISIBILITY);
         invisibilityPotion.setItemMeta(potionMeta);
 
         ShapedRecipe invisRecipe = new ShapedRecipe(invisibleRecipe, invisibleItem);
@@ -136,14 +137,14 @@ public class CraftableInvFrames extends JavaPlugin implements Listener {
         invisRecipe.setIngredient('P', new RecipeChoice.ExactChoice(invisibilityPotion));
         Bukkit.addRecipe(invisRecipe);
 
-        ItemStack fixedItem = generateFixedItemFrame();
-        fixedItem.setAmount(1);
-
-        ShapedRecipe fixedRecipe = new ShapedRecipe(new NamespacedKey(this, "fixed-recipe"), fixedItem);
-        fixedRecipe.shape("FFF", "FIF", "FFF");
-        fixedRecipe.setIngredient('F', Material.ITEM_FRAME);
-        fixedRecipe.setIngredient('I', Material.IRON_INGOT);
-        Bukkit.addRecipe(fixedRecipe);
+//        ItemStack fixedItem = generateFixedItemFrame();
+//        fixedItem.setAmount(1);
+//
+//        ShapedRecipe fixedRecipe = new ShapedRecipe(new NamespacedKey(this, "fixed-recipe"), fixedItem);
+//        fixedRecipe.shape("FFF", "FIF", "FFF");
+//        fixedRecipe.setIngredient('F', Material.ITEM_FRAME);
+//        fixedRecipe.setIngredient('I', Material.IRON_INGOT);
+//        Bukkit.addRecipe(fixedRecipe);
     }
 
     public void forceRecheck() {
