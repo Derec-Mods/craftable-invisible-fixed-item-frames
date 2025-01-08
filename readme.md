@@ -5,7 +5,8 @@
 This plugin enables the crafting of invisible, and fixed item frames for Players
 
 Invisible item frames are crafted similar to tipped arrows - one invisibility potion surrounded by 8 item frames\
-![Recipe Screenshot](https://i.imgur.com/RtX84ic.png)
+![image](https://github.com/user-attachments/assets/f71022fa-40ba-4d2f-8bdc-4e512f3d56fb)
+
 
 Fixed item frames use one iron in the middle
 
